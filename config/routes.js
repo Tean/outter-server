@@ -5,5 +5,6 @@ module.exports = function(app){
 
 	app.get('/', homeCtrl.index);
   app.get('/api/v1/users', userCtrl.users);
+  app.get('/api/v1/user/:id', userCtrl.user);
 
 };

@@ -11,3 +11,15 @@ exports.users = function(req, res){
     }
   });
 };
+
+// GET
+exports.user = function (req, res) {
+  var id = req.params.id;
+  User.findOne({ '_id': id }, function(err, user) {
+    if (err) {
+      res.json(404, err);
+    } else {
+      res.json(200, {user: user});
+    }
+  });
+};
