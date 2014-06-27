@@ -17,6 +17,7 @@ To install this project, run the following commands:
 $ sudo npm install -g grunt
 $ git clone https://github.com/outter/outter-server.git outterServer
 $ cd outterServer
+$ sudo npm install
 $ grunt
 ```
 
