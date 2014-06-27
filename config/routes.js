@@ -1,7 +1,9 @@
 module.exports = function(app){
 
-	//home route
-	var home = require('../app/controllers/home');
-	app.get('/', home.index);
+	var homeCtrl = require('../app/controllers/home');
+  var userCtrl = require('../app/controllers/user');
+
+	app.get('/', homeCtrl.index);
+  app.get('/api/v1/users', userCtrl.users);
 
 };
