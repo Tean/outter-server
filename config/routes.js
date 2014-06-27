@@ -8,5 +8,6 @@ module.exports = function(app){
   app.get('/api/v1/user/:id', userCtrl.user);
   app.post('/api/v1/user', userCtrl.addUser);
   app.put('/api/v1/user/:id', userCtrl.editUser);
+  app.delete('/api/v1/user/:id', userCtrl.deleteUser);
 
 };

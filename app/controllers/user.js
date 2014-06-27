@@ -84,3 +84,19 @@ exports.editUser = function (req, res) {
   });
 
 };
+
+// DELETE
+exports.deleteUser = function (req, res) {
+  var id = req.params.id;
+  User.findById(id, function (err, user) {
+    return user.remove(function (err) {
+      if (!err) {
+        console.log("removed user");
+        return res.send(204);
+      } else {
+        console.log(err);
+        return res.json(500, err);
+      }
+    });
+  });
+};
