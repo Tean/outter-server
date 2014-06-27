@@ -23,3 +23,25 @@ exports.user = function (req, res) {
     }
   });
 };
+
+// POST
+exports.addUser = function (req, res) {
+  
+  var user;
+    
+  if(typeof req.body.user == 'undefined'){
+    return res.json(500, {message: 'user is undefined'});
+  }
+
+  user = new User(req.body.user);
+
+  user.save(function (err) {
+    if (!err) {
+      console.log("created user");
+      return res.json(201, user.toObject());
+    } else {
+       return res.json(500, err);
+    }
+  });
+
+};
