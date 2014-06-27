@@ -45,3 +45,42 @@ exports.addUser = function (req, res) {
   });
 
 };
+
+// PUT
+exports.editUser = function (req, res) {
+  var id = req.params.id;
+
+  User.findById(id, function (err, user) {
+  
+    if(typeof req.body.user["title"] != 'undefined'){
+      user["title"] = req.body.user["title"];
+    }  
+  
+    if(typeof req.body.user["excerpt"] != 'undefined'){
+      user["excerpt"] = req.body.user["excerpt"];
+    }  
+  
+    if(typeof req.body.user["content"] != 'undefined'){
+      user["content"] = req.body.user["content"];
+    }  
+  
+    if(typeof req.body.user["active"] != 'undefined'){
+      user["active"] = req.body.user["active"];
+    }  
+  
+    if(typeof req.body.user["created"] != 'undefined'){
+      user["created"] = req.body.user["created"];
+    }  
+  
+    return user.save(function (err) {
+      if (!err) {
+        console.log("updated user");
+        return res.json(200, user.toObject());        
+      } else {
+       return res.json(500, err);
+      }
+      return res.json(user);
+    });
+  });
+
+};
