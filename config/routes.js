@@ -1,7 +1,7 @@
 module.exports = function(app){
 
 	var homeCtrl = require('../app/controllers/home');
-  var userCtrl = require('../app/controllers/user');
+  var userCtrl = require('../app/controllers/users');
 
 	app.get('/', homeCtrl.index);
   app.get('/api/v1/users', userCtrl.users);
