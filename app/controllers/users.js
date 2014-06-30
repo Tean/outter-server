@@ -63,11 +63,7 @@ exports.editUser = function (req, res) {
     if(typeof req.body.user["email"] != 'undefined'){
       user["email"] = req.body.user["email"];
     }  
-  
-    // if(typeof req.body.user["created"] != 'undefined'){
-    //   user["created"] = req.body.user["created"];
-    // }  
-  
+    
     return user.save(function (err) {
       if (!err) {
         console.log("updated user");

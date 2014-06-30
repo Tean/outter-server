@@ -68,10 +68,6 @@ exports.editMessage = function (req, res) {
       message["category"] = req.body.message["category"];
     }  
   
-    // if(typeof req.body.message["created"] != 'undefined'){
-    //   message["created"] = req.body.message["created"];
-    // }  
-  
     return message.save(function (err) {
       if (!err) {
         console.log("updated message");
