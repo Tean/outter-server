@@ -23,6 +23,12 @@ $ grunt
 
 Then open Chrome (or equivalent browser), and type [localhost:3000](http://localhost:3000)
 
+## Important
+
+In order for this project, please install the following two projects:
+1. [Outter](http://github.com/outter)
+2. [Outter Websocket Server](http://github.com/outter/outter-ws-server)
+
 ## Issues
 If you do find an issue or have a question consider sending the [Outter Team](mailto:dev@outter.io) an email. Otherwise, feel free to contribute to the repository and issue a pull request.
 
