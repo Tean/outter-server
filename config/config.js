@@ -8,7 +8,7 @@ var config = {
     app: {
       name: 'outter-server'
     },
-    port: 27017,
+    port: 3000,
     db: 'mongodb://localhost/outter-server-development'
   },
 
@@ -17,7 +17,7 @@ var config = {
     app: {
       name: 'outter-server'
     },
-    port: 27017,
+    port: 3000,
     db: 'mongodb://localhost/outter-server-test'
   },
 
@@ -26,7 +26,7 @@ var config = {
     app: {
       name: 'outter-server'
     },
-    port: 27017,
+    port: 3000,
     db: 'mongodb://localhost/outter-server-production'
   }
 };

@@ -9,11 +9,11 @@ var mongoose = require('mongoose'),
 var UserSchema = new Schema({
   firstName: String,
   lastName: String,
-  email: { type: String, required: true, index: { unique: true } },
+  email: { type: String, required: true, unique: true, index: true },
   password: { type: String, required: true },
   loginAttempts: { type: Number, required: true, default: 0 },
-  lockUntil: { type: Number }
-});;
+  lockUntil: Number
+});
 
 UserSchema.virtual('isLocked').get(function() {
   // check for a future lockUntil timestamp

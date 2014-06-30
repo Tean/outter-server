@@ -1,46 +1,5 @@
 var mongoose = require('mongoose'),
     User = mongoose.model('User');
- 
-var testUser = new User({
-  firstName: 'Robert',
-  lastName: 'Callender',
-  email: 'rcallender@outter.io',
-  password: 'Password123'
-});
-
-// save user to database
-testUser.save(function(err) {
-  if (err) throw err;
- 
-  // attempt to authenticate user
-  User.getAuthenticated('rcallender@outter.io', 'Password123', function(err, user, reason) {
-    if (err) throw err;
-
-    // login was successful if we have a user
-    if (user) {
-      // handle login success
-      console.log('Login success');
-      return;
-    }
-
-    // otherwise we can determine why we failed
-    var reasons = User.failedLogin;
-    switch (reason) {
-      case reasons.NOT_FOUND:
-        console.log('User failed to login due to account not found');
-      case reasons.PASSWORD_INCORRECT:
-        console.log('User failed to login due to incorrect password');
-      // note: these cases are usually treated the same - don't tell
-      // the user *why* the login failed, only that it did
-      break;
-      case reasons.MAX_ATTEMPTS:
-        console.log('User failed to login due to max attempts reached');
-      // send email or otherwise notify user that account is
-      // temporarily locked
-      break;
-    }
-  });
-});
 
 // ALL
 exports.users = function(req, res){
@@ -93,25 +52,21 @@ exports.editUser = function (req, res) {
 
   User.findById(id, function (err, user) {
   
-    if(typeof req.body.user["title"] != 'undefined'){
-      user["title"] = req.body.user["title"];
+    if(typeof req.body.user["firstName"] != 'undefined'){
+      user["firstName"] = req.body.user["firstName"];
     }  
   
-    if(typeof req.body.user["excerpt"] != 'undefined'){
-      user["excerpt"] = req.body.user["excerpt"];
+    if(typeof req.body.user["lastName"] != 'undefined'){
+      user["lastName"] = req.body.user["lastName"];
     }  
   
-    if(typeof req.body.user["content"] != 'undefined'){
-      user["content"] = req.body.user["content"];
+    if(typeof req.body.user["email"] != 'undefined'){
+      user["email"] = req.body.user["email"];
     }  
   
-    if(typeof req.body.user["active"] != 'undefined'){
-      user["active"] = req.body.user["active"];
-    }  
-  
-    if(typeof req.body.user["created"] != 'undefined'){
-      user["created"] = req.body.user["created"];
-    }  
+    // if(typeof req.body.user["created"] != 'undefined'){
+    //   user["created"] = req.body.user["created"];
+    // }  
   
     return user.save(function (err) {
       if (!err) {
