@@ -1,6 +1,6 @@
 module.exports = function(app){
 
-	var seed = require('./seed');
+	// var seed = require('./seed');
 
   var homeCtrl = require('../app/controllers/home');
   var userCtrl = require('../app/controllers/users');

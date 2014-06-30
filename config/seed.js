@@ -17,7 +17,7 @@ newMessage.save(function(err) {
 
 var newMessage2 = new Message({
   from: 'elee@outter.io',
-  to: 'skurilyak@outter.io',
+  to: ['skurilyak@outter.io', 'akong@outter.io'],
   body: 'Hackernews.com is awesome',
   category: 'fyi'
 });
@@ -29,7 +29,7 @@ newMessage2.save(function(err) {
 
 var newMessage3 = new Message({
   from: 'akong@outter.io',
-  to: 'skurilyak@outter.io',
+  to: ['skurilyak@outter.io', 'elee@outter.io'],
   body: 'Have you heard of Hackernews.com?',
   category: 'question'
 });

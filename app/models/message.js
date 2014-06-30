@@ -3,9 +3,10 @@ var mongoose = require('mongoose'),
 
 var MessageSchema = new Schema({
   from: String,
-  to: String,
+  to: [],
   body: String,
-  category: String
+  category: String,
+  sent: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('Message', MessageSchema);
