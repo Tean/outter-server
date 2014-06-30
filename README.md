@@ -21,6 +21,8 @@ $ npm install
 $ grunt
 ```
 
+Then open Chrome (or equivalent browser), and type [localhost:3000](localhost:3000)
+
 ## Issues
 If you do find an issue or have a question consider sending the [Outter Team](mailto:dev@outter.io) an email. Otherwise, feel free to contribute to the repository and issue a pull request.
 
