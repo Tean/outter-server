@@ -15,6 +15,18 @@ var UserSchema = new Schema({
   lockUntil: Number
 });
 
+/* JSON equivalent
+{
+  _id: "53b10a0d6b8e657629000004",
+  firstName: "Slav",
+  lastName: "Kurilyak",
+  email: "skurilyak@outter.io",
+  password: "$2a$10$hcKmW4D7MV5SGTeMGhE7me79R7AJi2sWU9AlIIScSp2.otcaX/kn.",
+  __v: 0,
+  loginAttempts: 0
+}
+*/
+
 UserSchema.virtual('isLocked').get(function() {
   // check for a future lockUntil timestamp
   return !!(this.lockUntil && this.lockUntil > Date.now());
