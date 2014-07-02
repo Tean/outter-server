@@ -6,7 +6,7 @@ var MessageSchema = new Schema({
   to: { type: [], index: true },
   body: { type: String },
   category: { type: String, index: true },
-  sent: { type: Date, default: Date.now, index: true } }
+  sent: { type: Date, default: Date.now, index: true }
 });
 
 /* JSON equivalent
