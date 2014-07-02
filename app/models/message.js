@@ -2,11 +2,11 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var MessageSchema = new Schema({
-  from: String,
-  to: [],
-  body: String,
-  category: String,
-  sent: { type: Date, default: Date.now }
+  from: { type: String },
+  to: { type: [], index: true },
+  body: { type: String },
+  category: { type: String, index: true },
+  sent: { type: Date, default: Date.now, index: true }
 });
 
 /* JSON equivalent
