@@ -20,4 +20,6 @@ module.exports = function(app){
   app.put('/api/v1/message/:id', messageCtrl.editMessage);
   app.delete('/api/v1/message/:id', messageCtrl.deleteMessage);
 
+  app.get('/api/v1/messages/to/:id', messageCtrl.messagesTo);
+
 };
