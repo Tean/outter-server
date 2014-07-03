@@ -5,82 +5,41 @@ var mongoose = require('mongoose'),
 Message.find({}).exec(function(err, collection) {
   if(collection.length === 0) {
 
-    var newMessage = new Message({
-      from: 'skurilyak@outter.io',
-      to: 'elee@outter.io',
-      body: 'Check out hackernews.com',
-      category: 'fyi'
+    var arrayMessages = [
+      { from: "skurilyak@outter.io", to: "elee@outter.io", body: "Go 1.3 is released", category: "fyi" },
+      { from: "skurilyak@outter.io", to: "akong@outter.io", body: "Check out the new Amazon Fire phone", category: "fyi" },
+      { from: "skurilyak@outter.io", to: ["elee@outter.io", "akong@outter.io"], body: "Take my advice: stand up for yourself.", category: "fyi" },
+      { from: "skurilyak@outter.io", to: ["elee@outter.io", "akong@outter.io"], body: "My roommate(s) and I once: had a party every weekend for three months straight.", category: "fyi" },
+      { from: "elee@outter.io", to: "akong@outter.io", body: "Sorry Im late, but I didnt want to come.", category: "fyi" },
+      { from: "elee@outter.io", to: "skurilyak@outter.io", body: "Were like a really small gang", category: "fyi" },
+      { from: "akong@outter.io", to: "elee@outter.io", body: "Never in my life have I: built a snowman.", category: "fyi" },
+      { from: "akong@outter.io", to: "elee@outter.io", body: "My ideal breakfast is: chilaquiles.", category: "fyi" },
+      { from: "akong@outter.io", to: ["elee@outter.io", "skurilyak@outter.io"], body: "Sometime soon I plan to visit: Paris.", category: "fyi" },
+      { from: "akong@outter.io", to: ["elee@outter.io", "skurilyak@outter.io"], body: "Bad decisions make good stories.", category: "fyi" }
+    ];
+  
+    Message.create(arrayMessages, function (err) {
+      if (err) throw error;
+      else
+      console.log('New messages was successfully added to db');
     });
-
-    newMessage.save(function(err) {
-      if (err) throw err;
-      console.log('New message was successfully added to db');
-    });
-
-    var newMessage2 = new Message({
-      from: 'elee@outter.io',
-      to: ['skurilyak@outter.io', 'akong@outter.io'],
-      body: 'Hackernews.com is awesome',
-      category: 'fyi'
-    });
-
-    newMessage2.save(function(err) {
-      if (err) throw err;
-      console.log('New message was successfully added to db');
-    });
-
-    var newMessage3 = new Message({
-      from: 'akong@outter.io',
-      to: ['skurilyak@outter.io', 'elee@outter.io'],
-      body: 'Have you heard of Hackernews.com?',
-      category: 'question'
-    });
-
-    newMessage3.save(function(err) {
-      if (err) throw err;
-      console.log('New message was successfully added to db');
-    });
-
+  
   }
 })
 
 User.find({}).exec(function(err, collection) {
   if(collection.length === 0) {
- 
-    var newUser1 = new User({
-      firstName: 'Slav',
-      lastName: 'Kurilyak',
-      email: 'skurilyak@outter.io',
-      password: 'Password123'
-    });
 
-    newUser1.save(function(err) {
-      if (err) throw err;
-      console.log('New user was successfully added to db');
-    });
+    var arrayUsers = [
+      { firstName: "Slav", lastName: "Kurilyak", email: "skurilyak@outter.io", password: "Password123" },
+      { firstName: "Andrew", lastName: "Kong", email: "akong@outter.io", password: "Password123" },
+      { firstName: "Eric", lastName: "Lee", email: "elee@outter.io", password: "Password123" }
+    ]
 
-    var newUser2 = new User({
-      firstName: 'Andrew',
-      lastName: 'Kong',
-      email: 'akong@outter.io',
-      password: 'Password123'
-    });
-
-    newUser2.save(function(err) {
-      if (err) throw err;
-      console.log('New user was successfully added to db');
-    });
-
-    var newUser3 = new User({
-      firstName: 'Eric',
-      lastName: 'Lee',
-      email: 'elee@outter.io',
-      password: 'Password123'
-    });
-
-    newUser3.save(function(err) {
-      if (err) throw err;
-      console.log('New user was successfully added to db');
+    User.create(arrayUsers, function (err) {
+      if (err) throw error;
+      else
+      console.log('New users was successfully added to db');
     });
 
   }
