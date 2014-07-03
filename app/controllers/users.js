@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
     User = mongoose.model('User');
 
-// ALL
+// GET (/api/v1/users)
 exports.users = function(req, res){
   User.find(function(err, users) {
     if (err) {
@@ -12,7 +12,7 @@ exports.users = function(req, res){
   });
 };
 
-// GET
+// GET (/api/v1/user/:id)
 exports.user = function (req, res) {
   var id = req.params.id;
   User.findOne({ '_id': id }, function(err, user) {
@@ -24,7 +24,7 @@ exports.user = function (req, res) {
   });
 };
 
-// POST
+// POST (/api/v1/user)
 exports.addUser = function (req, res) {
   
   var user;
@@ -46,7 +46,7 @@ exports.addUser = function (req, res) {
 
 };
 
-// PUT
+// PUT (/api/v1/user/:id)
 exports.editUser = function (req, res) {
   var id = req.params.id;
 
@@ -77,7 +77,7 @@ exports.editUser = function (req, res) {
 
 };
 
-// DELETE
+// DELETE (/api/v1/user/:id)
 exports.deleteUser = function (req, res) {
   var id = req.params.id;
   User.findById(id, function (err, user) {
