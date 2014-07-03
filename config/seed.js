@@ -44,7 +44,32 @@ User.find({}).exec(function(err, collection) {
     var arrayUsers = [
       { firstName: "Slav", lastName: "Kurilyak", email: "skurilyak@outter.io", password: "Password123" },
       { firstName: "Andrew", lastName: "Kong", email: "akong@outter.io", password: "Password123" },
-      { firstName: "Eric", lastName: "Lee", email: "elee@outter.io", password: "Password123" }
+      { firstName: "Eric", lastName: "Lee", email: "elee@outter.io", password: "Password123" },
+      
+      { firstName: "Gordon", lastName: "Wilkinson", email: "gwilkinson@outter.io", password: "Password123" },
+      { firstName: "Andre", lastName: "Soesilo", email: "asoesilo@outter.io", password: "Password123" },
+      { firstName: "Barrett", lastName: "Stutzman", email: "bstutzman@outter.io", password: "Password123" },
+      { firstName: "Billy", lastName: "Lan", email: "blan@outter.io", password: "Password123" },
+      { firstName: "Brett", lastName: "Campbell", email: "bcampbell@outter.io", password: "Password123" },
+      { firstName: "Colin", lastName: "Clay", email: "cclay@outter.io", password: "Password123" },
+      { firstName: "Duncan", lastName: "Strong", email: "dstrong@outter.io", password: "Password123" },
+      { firstName: "Gabriel Taylor", lastName: "Russ", email: "gtruss@outter.io", password: "Password123" },
+      { firstName: "Jackson", lastName: "Chao", email: "jchao@outter.io", password: "Password123" },
+      { firstName: "Jamie", lastName: "Woodbury", email: "jwoodbury@outter.io", password: "Password123" },
+      { firstName: "Jeff", lastName: "Brunson", email: "jbrunson@outter.io", password: "Password123" },
+      { firstName: "Kevin", lastName: "Sherman", email: "ksherman@outter.io", password: "Password123" },
+      { firstName: "Rene", lastName: "Cravioto", email: "rcravioto@outter.io", password: "Password123" },
+      { firstName: "Su Yon", lastName: "Suhn", email: "sysuhn@outter.io", password: "Password123" },
+
+      { firstName: "Khurram", lastName: "Virani", email: "kvirani@outter.io", password: "Password123" },
+      { firstName: "Jeremy", lastName: "Shaki", email: "jshaki@outter.io", password: "Password123" },
+      { firstName: "Ian", lastName: "MacKinnon", email: "imackinnon@outter.io", password: "Password123" },
+      { firstName: "Chris", lastName: "Tulip", email: "ctulip@outter.io", password: "Password123" },
+      { firstName: "Murat", lastName: "Ayfer", email: "mayfer@outter.io", password: "Password123" },
+      { firstName: "Jessica", lastName: "Johnson", email: "jjohnson@outter.io", password: "Password123" },
+      { firstName: "Jeff", lastName: "Ling", email: "jling@outter.io", password: "Password123" },
+      { firstName: "Neil", lastName: "O\'Grady", email: "nogrady@outter.io", password: "Password123" },
+      { firstName: "Brandan", lastName: "Asselstine", email: "basselstine@outter.io", password: "Password123" }
     ]
 
     User.create(arrayUsers, function (err) {
