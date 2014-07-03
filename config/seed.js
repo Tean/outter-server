@@ -15,7 +15,18 @@ Message.find({}).exec(function(err, collection) {
       { from: "akong@outter.io", to: "elee@outter.io", body: "Never in my life have I: built a snowman.", category: "fyi" },
       { from: "akong@outter.io", to: "elee@outter.io", body: "My ideal breakfast is: chilaquiles.", category: "fyi" },
       { from: "akong@outter.io", to: ["elee@outter.io", "skurilyak@outter.io"], body: "Sometime soon I plan to visit: Paris.", category: "fyi" },
-      { from: "akong@outter.io", to: ["elee@outter.io", "skurilyak@outter.io"], body: "Bad decisions make good stories.", category: "fyi" }
+      { from: "akong@outter.io", to: ["elee@outter.io", "skurilyak@outter.io"], body: "Bad decisions make good stories.", category: "fyi" },
+
+      { from: "skurilyak@outter.io", to: "elee@outter.io", body: "What time do you finish?", category: "question" },
+      { from: "skurilyak@outter.io", to: "akong@outter.io", body: "Do you want to eat sushi or tacos tonight?", category: "question" },
+      { from: "skurilyak@outter.io", to: ["elee@outter.io", "akong@outter.io"], body: "What do you like on your toast?", category: "question" },
+      { from: "skurilyak@outter.io", to: ["elee@outter.io", "akong@outter.io"], body: "Are you a hat person?", category: "question" },
+      { from: "elee@outter.io", to: "akong@outter.io", body: "ave you ever painted a house?", category: "question" },
+      { from: "elee@outter.io", to: "skurilyak@outter.io", body: "Where do you like to go to tonight?", category: "question" },
+      { from: "akong@outter.io", to: "elee@outter.io", body: "Can you play the harmonica?", category: "question" },
+      { from: "akong@outter.io", to: "elee@outter.io", body: "Whats your favourite ocean?", category: "question" },
+      { from: "akong@outter.io", to: ["elee@outter.io", "skurilyak@outter.io"], body: "Have you ever been to a live concert?", category: "question" },
+      { from: "akong@outter.io", to: ["elee@outter.io", "skurilyak@outter.io"], body: "Are you any good at pool?", category: "question" }
     ];
   
     Message.create(arrayMessages, function (err) {
