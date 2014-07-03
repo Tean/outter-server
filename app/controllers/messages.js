@@ -26,14 +26,12 @@ exports.message = function (req, res) {
 
 // POST (/api/v1/message)
 exports.addMessage = function (req, res) {
-  
-  var message;
     
-  if(typeof req.body.message == 'undefined'){
+  if(typeof req.body == 'undefined'){
     return res.json(500, {message: 'message is undefined'});
   }
 
-  message = new Message(req.body.message);
+  var message = new Message(req.body);
 
   message.save(function (err) {
     if (!err) {

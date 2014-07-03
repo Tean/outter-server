@@ -27,13 +27,11 @@ exports.user = function (req, res) {
 // POST (/api/v1/user)
 exports.addUser = function (req, res) {
   
-  var user;
-    
-  if(typeof req.body.user == 'undefined'){
+  if(typeof req.body == 'undefined'){
     return res.json(500, {message: 'user is undefined'});
   }
 
-  user = new User(req.body.user);
+  var user = new User(req.body.user);
 
   user.save(function (err) {
     if (!err) {
