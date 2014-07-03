@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
     Message = mongoose.model('Message');
  
-// ALL
+// GET (/api/v1/messages)
 exports.messages = function(req, res){
   Message.find(function(err, messages) {
     if (err) {
@@ -12,7 +12,7 @@ exports.messages = function(req, res){
   });
 };
 
-// GET
+// GET (/api/v1/message/:id)
 exports.message = function (req, res) {
   var id = req.params.id;
   Message.findOne({ '_id': id }, function(err, message) {
@@ -24,7 +24,7 @@ exports.message = function (req, res) {
   });
 };
 
-// POST
+// POST (/api/v1/message)
 exports.addMessage = function (req, res) {
   
   var message;
@@ -46,7 +46,7 @@ exports.addMessage = function (req, res) {
 
 };
 
-// PUT
+// PUT (/api/v1/message/:id)
 exports.editMessage = function (req, res) {
   var id = req.params.id;
 
@@ -81,7 +81,7 @@ exports.editMessage = function (req, res) {
 
 };
 
-// DELETE
+// DELETE (/api/v1/message/:id)
 exports.deleteMessage = function (req, res) {
   var id = req.params.id;
   Message.findById(id, function (err, message) {
@@ -97,10 +97,34 @@ exports.deleteMessage = function (req, res) {
   });
 };
 
-// GET (MESSAGES/TO)
+// GET (/api/v1/messages/to/:id)
 exports.messagesTo = function (req, res) {
   var to = req.params.id;
   Message.find({ 'to': to }, function(err, message) {
+    if (err) {
+      res.json(404, err);
+    } else {
+      res.json(200, {message: message});
+    }
+  });
+};
+
+// GET (/api/v1/messages/to/:id/fyi)
+exports.messagesToByCategoryFyi = function (req, res) {
+  var to = req.params.id;
+  Message.find({ 'to': to, category: 'fyi' }, function(err, message) {
+    if (err) {
+      res.json(404, err);
+    } else {
+      res.json(200, {message: message});
+    }
+  });
+};
+
+// GET (/api/v1/messages/to/:id/question)
+exports.messagesToByCategoryQuestion = function (req, res) {
+  var to = req.params.id;
+  Message.find({ 'to': to, category: 'question' }, function(err, message) {
     if (err) {
       res.json(404, err);
     } else {
