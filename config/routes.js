@@ -21,7 +21,7 @@ module.exports = function(app){
   app.delete('/api/v1/message/:id', messageCtrl.deleteMessage);
 
   app.get('/api/v1/messages/to/:id', messageCtrl.messagesTo);
-  app.get('/api/v1/messages/to/:id/fyi', messageCtrl.messagesToByCategoryFyi);
-  app.get('/api/v1/messages/to/:id/question', messageCtrl.messagesToByCategoryQuestion);
+  app.get('/api/v1/messages/to/:id/fyis', messageCtrl.messagesToByCategoryFyi);
+  app.get('/api/v1/messages/to/:id/questions', messageCtrl.messagesToByCategoryQuestion);
 
 };
