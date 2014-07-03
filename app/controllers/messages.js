@@ -96,3 +96,15 @@ exports.deleteMessage = function (req, res) {
     });
   });
 };
+
+// GET (MESSAGES/TO)
+exports.messagesTo = function (req, res) {
+  var to = req.params.id;
+  Message.find({ 'to': to }, function(err, message) {
+    if (err) {
+      res.json(404, err);
+    } else {
+      res.json(200, {message: message});
+    }
+  });
+};
