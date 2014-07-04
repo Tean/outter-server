@@ -21,11 +21,11 @@ $ npm install
 $ grunt
 ```
 
-Then open Chrome (or equivalent browser), and type [localhost:3000](http://localhost:3000)
+This server will run on [localhost:3000](http://localhost:3000).
 
 ## Important
 
-In order for this project, please install the following two projects:
+In order for this project to work, please install the following two projects:
 1. [Outter](http://github.com/outter)
 2. [Outter Websocket Server](http://github.com/outter/outter-ws-server)
 
