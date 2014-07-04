@@ -4,6 +4,7 @@ var path = require('path'),
 
 var config = {
   development: {
+    secret: 'abc123',
     root: rootPath,
     app: {
       name: 'outter-server'
@@ -13,6 +14,7 @@ var config = {
   },
 
   test: {
+    secret: 'abc123',
     root: rootPath,
     app: {
       name: 'outter-server'
@@ -22,6 +24,7 @@ var config = {
   },
 
   production: {
+    secret: 'abc123',
     root: rootPath,
     app: {
       name: 'outter-server'
