@@ -12,6 +12,32 @@ exports.users = function(req, res){
   });
 };
 
+// POST (/api/v1/user/login)
+exports.login = function (req, res) {
+  if(typeof req.body == 'undefined'){
+    return res.json(500, {message: 'email or password is undefined'});
+  }
+
+  var email = req.body.email;
+  var password = req.body.password;
+
+  User.getAuthenticated(email, password, function(err, user, reason) {
+    if (user == null) {
+      var message = '';
+      switch (reason) {
+        case User.reasons.NOT_FOUND:
+        case User.reasons.PASSWORD_INCORRECT:
+          message = 0;
+          break;
+        case User.reasons.MAX_ATTEMPTS:
+          message = 1;
+      }
+    }
+
+    res.json(200, {user: user, message: message});
+  });
+};
+
 // GET (/api/v1/user/:id)
 exports.user = function (req, res) {
   var id = req.params.id;
@@ -34,6 +60,7 @@ exports.addUser = function (req, res) {
   var user = new User(req.body.user);
 
   user.save(function (err) {
+    console.log(err);
     if (!err) {
       console.log("created user");
       return res.json(201, user.toObject());
