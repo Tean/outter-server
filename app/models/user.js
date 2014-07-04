@@ -10,6 +10,7 @@ var UserSchema = new Schema({
   firstName: String,
   lastName: String,
   email: { type: String, required: true, unique: true, index: true },
+  userName: { type: String, required: true, unique: true, index: true },
   password: { type: String, required: true },
   loginAttempts: { type: Number, required: true, default: 0 },
   lockUntil: Number
@@ -21,6 +22,7 @@ var UserSchema = new Schema({
   firstName: "Slav",
   lastName: "Kurilyak",
   email: "skurilyak@outter.io",
+  userName: "slavkurilyak",
   password: "$2a$10$hcKmW4D7MV5SGTeMGhE7me79R7AJi2sWU9AlIIScSp2.otcaX/kn.",
   __v: 0,
   loginAttempts: 0
