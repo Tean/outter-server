@@ -18,9 +18,9 @@ fs.readdirSync(modelsPath).forEach(function (file) {
 
 var app = express();
 
+require('./config/jwt')(app, config);
 require('./config/express')(app, config);
 require('./config/routes')(app);
-
 require('./config/seed');
 
 app.listen(config.port);
