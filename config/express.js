@@ -13,7 +13,7 @@ module.exports = function(app, config) {
     app.use(express.methodOverride());
     app.all('/*', function(req, res, next) {
       res.header("Access-Control-Allow-Origin", "*");
-      res.header("Access-Control-Allow-Headers", "X-Requested-With");
+      res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, Access-Control-Allow-Headers, Content-Type, Authorization, X-Requested-With, *");
       next();
     });
     app.use(app.router);
