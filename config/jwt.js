@@ -8,19 +8,24 @@ var express = require('express'),
 module.exports = function(app, config) {
   app.configure(function () {
     app.use(cors());
-    app.use('/auth', expressJwt({
+    app.use('/api', expressJwt({
       secret: config.secret,
-      skip: ['/token']
+      skip: ['/v1/user', '/v1/user/login']
     }));
     app.use(express.json());
     app.use(express.urlencoded());
   });
 
-  app.get('/auth/test', function (req, res) {
+  app.use(function(req, res, next) {
+    req.config = config;
+    return next();
+  });
+
+  app.get('/api/test', function (req, res) {
     res.json({});
   });
 
-  app.post('/auth/token', function (req, res) {
+  app.post('/api/token', function (req, res) {
     // if (!(req.body.email === 'john.doe' && req.body.password === 'foobar')) {
     //   res.send(401, 'Wrong user or password');
     //   return;
