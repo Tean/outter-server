@@ -7,26 +7,26 @@ Message.find({}).exec(function(err, collection) {
 
     var arrayMessages = [
       { from: "slavkurilyak", to: "ericlee", body: "Go 1.3 is released", category: "fyi", sent: Date.parse("Jul 2, 2014") },
-      { from: "slavkurilyak", to: "andrewkong", body: "Check out the new Amazon Fire phone", category: "fyi", sent: Date.parse("Jul 2, 2014") },
-      { from: "slavkurilyak", to: ["ericlee", "andrewkong"], body: "Take my advice: stand up for yourself.", category: "fyi", sent: Date.parse("Jul 2, 2014") },
-      { from: "slavkurilyak", to: ["ericlee", "andrewkong"], body: "My roommate(s) and I once: had a party every weekend for three months straight.", category: "fyi", sent: Date.parse("Jul 2, 2014") },
-      { from: "ericlee", to: "andrewkong", body: "Sorry Im late, but I didnt want to come.", category: "fyi", sent: Date.parse("Jun 30, 2014") },
-      { from: "ericlee", to: "slavkurilyak", body: "Were like a really small gang", category: "fyi", sent: Date.parse("Jun 30, 2014") },
-      { from: "andrewkong", to: "ericlee", body: "Never in my life have I: built a snowman.", category: "fyi", sent: Date.parse("Jun 29, 2014") },
-      { from: "andrewkong", to: "ericlee", body: "My ideal breakfast is: chilaquiles.", category: "fyi", sent: Date.parse("Jun 29, 2014") },
-      { from: "andrewkong", to: ["ericlee", "slavkurilyak"], body: "Sometime soon I plan to visit: Paris.", category: "fyi", sent: Date.parse("Jun 28, 2014") },
-      { from: "andrewkong", to: ["ericlee", "slavkurilyak"], body: "Bad decisions make good stories.", category: "fyi", sent: Date.parse("Jun 28, 2014") },
+      { from: "ericlee", to: "andrewkong", body: "Check out the new Amazon Fire phone", category: "fyi", sent: Date.parse("Jul 1, 2014") },
+      { from: "andrewkong", to: ["ericlee", "slavkurilyak"], body: "Take my advice: stand up for yourself.", category: "fyi", sent: Date.parse("Jun 30, 2014") },
+      { from: "slavkurilyak", to: ["ericlee", "andrewkong"], body: "My roommate(s) and I once: had a party every weekend for three months straight.", category: "fyi", sent: Date.parse("Jun 29, 2014") },
+      { from: "ericlee", to: "andrewkong", body: "Sorry Im late, but I didnt want to come.", category: "fyi", sent: Date.parse("Jun 28, 2014") },
+      { from: "slavkurilyak", to: "ericlee", body: "Were like a really small gang", category: "fyi", sent: Date.parse("Jun 27, 2014") },
+      { from: "andrewkong", to: "ericlee", body: "Never in my life have I: built a snowman.", category: "fyi", sent: Date.parse("Jun 26, 2014") },
+      { from: "slavkurilyak", to: "ericlee", body: "My ideal breakfast is: chilaquiles.", category: "fyi", sent: Date.parse("Jun 25, 2014") },
+      { from: "andrewkong", to: ["ericlee", "slavkurilyak"], body: "Sometime soon I plan to visit: Paris.", category: "fyi", sent: Date.parse("Jun 24, 2014") },
+      { from: "ericlee", to: ["andrewkong", "slavkurilyak"], body: "Bad decisions make good stories.", category: "fyi", sent: Date.parse("Jun 23, 2014") },
 
-      { from: "slavkurilyak", to: "ericlee", body: "What time do you finish?", category: "question", sent: Date.parse("Jun 27, 2014") },
-      { from: "slavkurilyak", to: "andrewkong", body: "Do you want to eat sushi or tacos tonight?", category: "question", sent: Date.parse("Jun 27, 2014") },
-      { from: "slavkurilyak", to: ["ericlee", "andrewkong"], body: "What do you like on your toast?", category: "question", sent: Date.parse("Jun 26, 2014") },
-      { from: "slavkurilyak", to: ["ericlee", "andrewkong"], body: "Are you a hat person?", category: "question", sent: Date.parse("Jun 26, 2014") },
-      { from: "ericlee", to: "andrewkong", body: "ave you ever painted a house?", category: "question", sent: Date.parse("Jun 25, 2014") },
-      { from: "ericlee", to: "slavkurilyak", body: "Where do you like to go to tonight?", category: "question", sent: Date.parse("Jun 25, 2014") },
-      { from: "andrewkong", to: "ericlee", body: "Can you play the harmonica?", category: "question", sent: Date.parse("Jun 24, 2014") },
-      { from: "andrewkong", to: "ericlee", body: "Whats your favourite ocean?", category: "question", sent: Date.parse("Jun 24, 2014") },
-      { from: "andrewkong", to: ["ericlee", "slavkurilyak"], body: "Have you ever been to a live concert?", category: "question", sent: Date.parse("Jun 23, 2014") },
-      { from: "andrewkong", to: ["ericlee", "slavkurilyak"], body: "Are you any good at pool?", category: "question", sent: Date.parse("Jun 23, 2014") }
+      { from: "slavkurilyak", to: "ericlee", body: "What time do you finish?", category: "question", sent: Date.parse("Jul 2, 2014") },
+      { from: "ericlee", to: "andrewkong", body: "Do you want to eat sushi or tacos tonight?", category: "question", sent: Date.parse("Jul 1, 2014") },
+      { from: "andrewkong", to: ["ericlee", "slavkurilyak"], body: "What do you like on your toast?", category: "question", sent: Date.parse("Jun 30, 2014") },
+      { from: "slavkurilyak", to: ["ericlee", "andrewkong"], body: "Are you a hat person?", category: "question", sent: Date.parse("Jun 29, 2014") },
+      { from: "ericlee", to: "andrewkong", body: "ave you ever painted a house?", category: "question", sent: Date.parse("Jun 28, 2014") },
+      { from: "slavkurilyak", to: "ericlee", body: "Where do you like to go to tonight?", category: "question", sent: Date.parse("Jun 27, 2014") },
+      { from: "andrewkong", to: "ericlee", body: "Can you play the harmonica?", category: "question", sent: Date.parse("Jun 26, 2014") },
+      { from: "slavkurilyak", to: "ericlee", body: "Whats your favourite ocean?", category: "question", sent: Date.parse("Jun 25, 2014") },
+      { from: "andrewkong", to: ["ericlee", "slavkurilyak"], body: "Have you ever been to a live concert?", category: "question", sent: Date.parse("Jun 24, 2014") },
+      { from: "ericlee", to: ["andrewkong", "slavkurilyak"], body: "Are you any good at pool?", category: "question", sent: Date.parse("Jun 23, 2014") }
     ];
   
     Message.create(arrayMessages, function (err) {
