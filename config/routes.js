@@ -1,7 +1,5 @@
 module.exports = function(app){
 
-  // var seed = require('./seed');
-
   var homeCtrl = require('../app/controllers/home');
   var userCtrl = require('../app/controllers/users');
   var messageCtrl = require('../app/controllers/messages');
@@ -9,12 +7,13 @@ module.exports = function(app){
   app.get('/', homeCtrl.index);
   
   app.get('/api/v1/users', userCtrl.users);
-  app.post('/api/v1/user/login', userCtrl.login);
   app.get('/api/v1/user/:id', userCtrl.user);
   app.post('/api/v1/user', userCtrl.addUser);
   app.put('/api/v1/user/:id', userCtrl.editUser);
   app.delete('/api/v1/user/:id', userCtrl.deleteUser);
 
+  app.post('/api/v1/user/login', userCtrl.login);
+  
   app.get('/api/v1/messages', messageCtrl.messages);
   app.get('/api/v1/message/:id', messageCtrl.message);
   app.post('/api/v1/message', messageCtrl.addMessage);
