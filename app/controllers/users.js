@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
-    User = mongoose.model('User');
+    User = mongoose.model('User'),
+    jwt = require('jsonwebtoken');
 
 // GET (/api/v1/users)
 exports.users = function(req, res){
@@ -22,6 +23,9 @@ exports.login = function (req, res) {
   var password = req.body.password;
 
   User.getAuthenticated(email, password, function(err, user, reason) {
+    var session = null, 
+      token = null;
+
     if (user == null) {
       var message = '';
       switch (reason) {
@@ -32,9 +36,22 @@ exports.login = function (req, res) {
         case User.reasons.MAX_ATTEMPTS:
           message = 1;
       }
+    } else {
+      session = {
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        username: user.username,
+        id: user._id
+      };
+      token = jwt.sign(session, req.config.secret, { expiresInMinutes: 60 * 5 });
     }
 
-    res.json(200, {user: user, message: message});
+    res.json(200, {
+      user: session,
+      token: token,
+      message: message
+    });
   });
 };
 
@@ -52,7 +69,6 @@ exports.user = function (req, res) {
 
 // POST (/api/v1/user)
 exports.addUser = function (req, res) {
-  
   if(typeof req.body == 'undefined'){
     return res.json(500, {message: 'user is undefined'});
   }
@@ -63,9 +79,27 @@ exports.addUser = function (req, res) {
     console.log(err);
     if (!err) {
       console.log("created user");
-      return res.json(201, user.toObject());
+
+      var session = {
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        username: user.username,
+        id: user._id
+      };
+      var token = jwt.sign(session, req.config.secret, { expiresInMinutes: 60 * 5 });
+
+
+      return res.json(201, {
+        user: session,
+        token: token
+      });
     } else {
-       return res.json(500, err);
+      var message = null;
+      if (err.code === 11000) {
+        message = 0;
+      }
+      return res.json(500, {message: message, error: err});
     }
   });
 
