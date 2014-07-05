@@ -41,7 +41,7 @@ exports.login = function (req, res) {
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
-        username: user.username,
+        userName: user.userName,
         id: user._id
       };
       token = jwt.sign(session, req.config.secret, { expiresInMinutes: 60 * 5 });
