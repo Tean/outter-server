@@ -145,3 +145,15 @@ exports.messagesToByCategoryResponse = function (req, res) {
     }
   });
 };
+
+// GET (/api/v1/messages/from/:id)
+exports.messagesFrom = function (req, res) {
+  var from = req.params.id;
+  Message.find({ 'from': from }, function(err, message) {
+    if (err) {
+      res.json(404, err);
+    } else {
+      res.json(200, {message: message});
+    }
+  });
+};
