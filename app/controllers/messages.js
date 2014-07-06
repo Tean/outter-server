@@ -110,7 +110,7 @@ exports.messagesTo = function (req, res) {
   });
 };
 
-// GET (/api/v1/messages/to/:id/fyi)
+// GET (/api/v1/messages/to/:id/fyis)
 exports.messagesToByCategoryFyi = function (req, res) {
   var to = req.params.id;
   Message.find({ 'to': to, category: 'fyi' }, function(err, message) {
@@ -122,10 +122,22 @@ exports.messagesToByCategoryFyi = function (req, res) {
   });
 };
 
-// GET (/api/v1/messages/to/:id/question)
+// GET (/api/v1/messages/to/:id/questions)
 exports.messagesToByCategoryQuestion = function (req, res) {
   var to = req.params.id;
   Message.find({ 'to': to, category: 'question' }, function(err, message) {
+    if (err) {
+      res.json(404, err);
+    } else {
+      res.json(200, {message: message});
+    }
+  });
+};
+
+// GET (/api/v1/messages/to/:id/responses)
+exports.messagesToByCategoryResponse = function (req, res) {
+  var to = req.params.id;
+  Message.find({ 'to': to, category: 'response' }, function(err, message) {
     if (err) {
       res.json(404, err);
     } else {
