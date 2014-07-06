@@ -21,12 +21,23 @@ Message.find({}).exec(function(err, collection) {
       { from: "ericlee", to: "andrewkong", body: "Do you want to eat sushi or tacos tonight?", category: "question", sent: Date.parse("Jul 1, 2014") },
       { from: "andrewkong", to: ["ericlee", "slavkurilyak"], body: "What do you like on your toast?", category: "question", sent: Date.parse("Jun 30, 2014") },
       { from: "slavkurilyak", to: ["ericlee", "andrewkong"], body: "Are you a hat person?", category: "question", sent: Date.parse("Jun 29, 2014") },
-      { from: "ericlee", to: "andrewkong", body: "ave you ever painted a house?", category: "question", sent: Date.parse("Jun 28, 2014") },
+      { from: "ericlee", to: "andrewkong", body: "Have you ever painted a house?", category: "question", sent: Date.parse("Jun 28, 2014") },
       { from: "slavkurilyak", to: "ericlee", body: "Where do you like to go to tonight?", category: "question", sent: Date.parse("Jun 27, 2014") },
       { from: "andrewkong", to: "ericlee", body: "Can you play the harmonica?", category: "question", sent: Date.parse("Jun 26, 2014") },
       { from: "slavkurilyak", to: "ericlee", body: "Whats your favourite ocean?", category: "question", sent: Date.parse("Jun 25, 2014") },
       { from: "andrewkong", to: ["ericlee", "slavkurilyak"], body: "Have you ever been to a live concert?", category: "question", sent: Date.parse("Jun 24, 2014") },
-      { from: "ericlee", to: ["andrewkong", "slavkurilyak"], body: "Are you any good at pool?", category: "question", sent: Date.parse("Jun 23, 2014") }
+      { from: "ericlee", to: ["andrewkong", "slavkurilyak"], body: "Are you any good at pool?", category: "question", sent: Date.parse("Jun 23, 2014") },
+
+      { from: "ericlee", to: "slavkurilyak", body: "I finish work at 6pm", category: "response", sent: Date.parse("Jul 2, 2014") },
+      { from: "andrewkong", to: "ericlee", body: "Sushi sounds better", category: "response", sent: Date.parse("Jul 1, 2014") },
+      { from: "ericlee", to: "slavkurilyak", body: "Butter is my choice", category: "response", sent: Date.parse("Jun 30, 2014") },
+      { from: "slavkurilyak", to: "ericlee", body: "I am a hat person all the way", category: "response", sent: Date.parse("Jun 29, 2014") },
+      { from: "ericlee", to: "andrewkong", body: "No, I\'ve never pained a house", category: "response", sent: Date.parse("Jun 28, 2014") },
+      { from: "slavkurilyak", to: "ericlee", body: "I want to go to the movies tonight", category: "response", sent: Date.parse("Jun 27, 2014") },
+      { from: "andrewkong", to: "ericlee", body: "I can play the harmonica", category: "response", sent: Date.parse("Jun 26, 2014") },
+      { from: "slavkurilyak", to: "ericlee", body: "My favorite ocean is the Black Sea", category: "response", sent: Date.parse("Jun 25, 2014") },
+      { from: "andrewkong", to: "slavkurilyak", body: "I\'ve been to a live concert before", category: "response", sent: Date.parse("Jun 24, 2014") },
+      { from: "ericlee", to: "slavkurilyak", body: "I\'m awesome at pool", category: "response", sent: Date.parse("Jun 23, 2014") }
     ];
   
     Message.create(arrayMessages, function (err) {
