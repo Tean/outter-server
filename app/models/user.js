@@ -96,7 +96,7 @@ UserSchema.statics.getAuthenticated = function(email, password, cb) {
     if (!user) {
       return cb(null, null, reasons.NOT_FOUND);
     }
-
+    
     // check if the account is currently locked
     if (user.isLocked) {
       // just increment login attempts if account is already locked

@@ -26,10 +26,13 @@ exports.message = function (req, res) {
 
 // POST (/api/v1/message)
 exports.addMessage = function (req, res) {
-    
-  if(typeof req.body == 'undefined'){
+  if(typeof req.body == 'undefined') {
     return res.json(500, {message: 'message is undefined'});
   }
+
+  //-- Ensure sender is correct
+  req.body.from = req.user.userName;
+  //-- TODO: Ensure sender's contacts are correct?
 
   var message = new Message(req.body);
 

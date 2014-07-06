@@ -37,6 +37,7 @@ exports.login = function (req, res) {
           message = 1;
       }
     } else {
+      console.log(user);
       session = {
         firstName: user.firstName,
         lastName: user.lastName,
@@ -73,6 +74,7 @@ exports.addUser = function (req, res) {
     return res.json(500, {message: 'user is undefined'});
   }
 
+  console.log(req.body.user);
   var user = new User(req.body.user);
 
   user.save(function (err) {
@@ -84,7 +86,7 @@ exports.addUser = function (req, res) {
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
-        username: user.username,
+        userName: user.userName,
         id: user._id
       };
       var token = jwt.sign(session, req.config.secret, { expiresInMinutes: 60 * 5 });
