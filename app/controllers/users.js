@@ -37,7 +37,7 @@ exports.login = function (req, res) {
           message = 1;
       }
     } else {
-      console.log(user);
+      console.log("user", user.userName, "logged in");
       session = {
         firstName: user.firstName,
         lastName: user.lastName,
@@ -74,7 +74,6 @@ exports.addUser = function (req, res) {
     return res.json(500, {message: 'user is undefined'});
   }
 
-  console.log(req.body.user);
   var user = new User(req.body.user);
 
   user.save(function (err) {
