@@ -23,4 +23,4 @@ require('./config/express')(app, config);
 require('./config/routes')(app);
 require('./config/seed');
 
-app.listen(config.port);
+app.listen(config.port, '0.0.0.0');
