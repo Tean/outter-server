@@ -13,7 +13,8 @@ var UserSchema = new Schema({
   userName: { type: String, required: true, unique: true, index: true },
   password: { type: String, required: true },
   loginAttempts: { type: Number, required: true, default: 0 },
-  lockUntil: Number
+  lockUntil: Number,
+  contacts: []
 });
 
 /* JSON equivalent
@@ -25,7 +26,8 @@ var UserSchema = new Schema({
   userName: "slavkurilyak",
   password: "$2a$10$hcKmW4D7MV5SGTeMGhE7me79R7AJi2sWU9AlIIScSp2.otcaX/kn.",
   __v: 0,
-  loginAttempts: 0
+  loginAttempts: 0,
+  contacts: [ "jeffling", "neilogrady", "brandonasselstine" ]
 }
 */
 

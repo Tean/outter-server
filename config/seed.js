@@ -52,35 +52,37 @@ Message.find({}).exec(function(err, collection) {
 User.find({}).exec(function(err, collection) {
   if(collection.length === 0) {
 
-    var arrayUsers = [
-      { firstName: "Slav", lastName: "Kurilyak", userName: "slavkurilyak", email: "skurilyak@outter.io", password: "Password123" },
-      { firstName: "Andrew", lastName: "Kong", userName: "andrewkong", email: "akong@outter.io", password: "Password123" },
-      { firstName: "Eric", lastName: "Lee", userName: "ericlee", email: "elee@outter.io", password: "Password123" },
-      
-      { firstName: "Gordon", lastName: "Wilkinson", userName: "gordonwilkinson", email: "gwilkinson@outter.io", password: "Password123" },
-      { firstName: "Andre", lastName: "Soesilo", userName: "andresoesilo", email: "asoesilo@outter.io", password: "Password123" },
-      { firstName: "Barrett", lastName: "Stutzman", userName: "barrettstutzman", email: "bstutzman@outter.io", password: "Password123" },
-      { firstName: "Billy", lastName: "Lan", userName: "billylan", email: "blan@outter.io", password: "Password123" },
-      { firstName: "Brett", lastName: "Campbell", userName: "brettcampbell", email: "bcampbell@outter.io", password: "Password123" },
-      { firstName: "Colin", lastName: "Clay", userName: "colinclay", email: "cclay@outter.io", password: "Password123" },
-      { firstName: "Duncan", lastName: "Strong", userName: "duncanstrong", email: "dstrong@outter.io", password: "Password123" },
-      { firstName: "Gabriel", lastName: "Russ", userName: "gabrielruss", email: "gtruss@outter.io", password: "Password123" },
-      { firstName: "Jackson", lastName: "Chao", userName: "jacksonchao", email: "jchao@outter.io", password: "Password123" },
-      { firstName: "Jamie", lastName: "Woodbury", userName: "jamiewoodbury", email: "jwoodbury@outter.io", password: "Password123" },
-      { firstName: "Jeff", lastName: "Brunson", userName: "jeffbrunson", email: "jbrunson@outter.io", password: "Password123" },
-      { firstName: "Kevin", lastName: "Sherman", userName: "kevinsherman", email: "ksherman@outter.io", password: "Password123" },
-      { firstName: "Rene", lastName: "Cravioto", userName: "renecravioto", email: "rcravioto@outter.io", password: "Password123" },
-      { firstName: "Su", lastName: "Suhn", userName: "susuhn", email: "sysuhn@outter.io", password: "Password123" },
+    // "slavkurilyak"
 
-      { firstName: "Khurram", lastName: "Virani", userName: "khurram", email: "kvirani@outter.io", password: "Password123"},
-      { firstName: "Jeremy", lastName: "Shaki", userName: "jeremyshaki", email: "jshaki@outter.io", password: "Password123" },
-      { firstName: "Ian", lastName: "MacKinnon", userName: "ianmackinnon", email: "imackinnon@outter.io", password: "Password123" },
-      { firstName: "Chris", lastName: "Tulip", userName: "christulip", email: "ctulip@outter.io", password: "Password123" },
-      { firstName: "Murat", lastName: "Ayfer", userName: "muratayfer", email: "mayfer@outter.io", password: "Password123" },
-      { firstName: "Jessica", lastName: "Johnson", userName: "jessicajohnson", email: "jjohnson@outter.io", password: "Password123" },
-      { firstName: "Jeff", lastName: "Ling", userName: "jeffling", email: "jling@outter.io", password: "Password123" },
-      { firstName: "Neil", lastName: "O\'Grady", userName: "neilogrady", email: "nogrady@outter.io", password: "Password123" },
-      { firstName: "Brandan", lastName: "Asselstine", userName: "brandonasselstine", email: "basselstine@outter.io", password: "Password123" }
+    var arrayUsers = [
+      { firstName: "Slav", lastName: "Kurilyak", userName: "slavkurilyak", email: "skurilyak@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Andrew", lastName: "Kong", userName: "andrewkong", email: "akong@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Eric", lastName: "Lee", userName: "ericlee", email: "elee@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      
+      { firstName: "Gordon", lastName: "Wilkinson", userName: "gordonwilkinson", email: "gwilkinson@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Andre", lastName: "Soesilo", userName: "andresoesilo", email: "asoesilo@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Barrett", lastName: "Stutzman", userName: "barrettstutzman", email: "bstutzman@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Billy", lastName: "Lan", userName: "billylan", email: "blan@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Brett", lastName: "Campbell", userName: "brettcampbell", email: "bcampbell@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Colin", lastName: "Clay", userName: "colinclay", email: "cclay@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Duncan", lastName: "Strong", userName: "duncanstrong", email: "dstrong@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Gabriel", lastName: "Russ", userName: "gabrielruss", email: "gtruss@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Jackson", lastName: "Chao", userName: "jacksonchao", email: "jchao@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Jamie", lastName: "Woodbury", userName: "jamiewoodbury", email: "jwoodbury@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Jeff", lastName: "Brunson", userName: "jeffbrunson", email: "jbrunson@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Kevin", lastName: "Sherman", userName: "kevinsherman", email: "ksherman@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Rene", lastName: "Cravioto", userName: "renecravioto", email: "rcravioto@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Su", lastName: "Suhn", userName: "susuhn", email: "sysuhn@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+
+      { firstName: "Khurram", lastName: "Virani", userName: "khurramvirani", email: "kvirani@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Jeremy", lastName: "Shaki", userName: "jeremyshaki", email: "jshaki@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Ian", lastName: "MacKinnon", userName: "ianmackinnon", email: "imackinnon@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Chris", lastName: "Tulip", userName: "christulip", email: "ctulip@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Murat", lastName: "Ayfer", userName: "muratayfer", email: "mayfer@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Jessica", lastName: "Johnson", userName: "jessicajohnson", email: "jjohnson@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Jeff", lastName: "Ling", userName: "jeffling", email: "jling@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Neil", lastName: "O\'Grady", userName: "neilogrady", email: "nogrady@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] },
+      { firstName: "Brandan", lastName: "Asselstine", userName: "brandonasselstine", email: "basselstine@outter.io", password: "Password123", contacts: [ "jeffling", "neilogrady", "brandonasselstine" ] }
     ]
 
     User.create(arrayUsers, function (err) {
