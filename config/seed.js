@@ -101,3 +101,46 @@ User.find({}).exec(function(err, collection) {
 
   }
 })
+
+// Mongoose Population
+// var slavkurilyak = User.findOne({ userName: "slavkurilyak" });
+// console.log('slavkurilyak', slavkurilyak);
+// var ericlee = User.findOne({ userName: "ericlee" });
+// console.log('ericlee._id', ericlee._id);
+
+// slavkurilyak
+// .exec(function (err, person) {
+//   if (err) return handleError(err);
+//   console.log('person', person);
+// })
+
+// User.findOne({userName: "slavkurilyak"}, function(err, user){
+//   slavkurilyak = user._id;
+// })
+// .populate({
+//   path: 'contactsArray',
+//   match: 'new'
+//   select: 'userName -_id',
+//   options: { limit: 5 }
+// })
+// .exec()
+
+// var samroberts = new User({ _id: 0, userName: "samroberts", email: "sroberts@outter.io", password: "Password123", loginAttempts: 0 });
+
+// samroberts.save(function (err) {
+//   if (err) return handleError(err);
+  
+//   var tomcruise = new User({ 
+//     _id: 1, 
+//     userName: "tomcruise", 
+//     email: "tcruise@outter.io", 
+//     password: "Password123", 
+//     loginAttempts: 0,
+//     _creator: samroberts._id    // assign the _id from the person
+//   });
+  
+//   tomcruise.save(function (err) {
+//     if (err) return handleError(err);
+//     // thats it!
+//   });
+// })

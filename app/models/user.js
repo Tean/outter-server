@@ -16,7 +16,8 @@ var UserSchema = new Schema({
   lockUntil: Number,
   contacts: [],
   about: String,
-  picURL: String
+  picURL: String,
+  contactsArray: [ { type: Schema.ObjectId, ref: 'User'} ]
 });
 
 /* JSON equivalent
