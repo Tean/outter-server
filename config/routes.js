@@ -24,6 +24,7 @@ module.exports = function(app){
   app.get('/api/v1/messages/to/:id/fyis', messageCtrl.messagesToByCategoryFyi);
   app.get('/api/v1/messages/to/:id/questions', messageCtrl.messagesToByCategoryQuestion);
   app.get('/api/v1/messages/to/:id/responses', messageCtrl.messagesToByCategoryResponse);
+  app.get('/api/v1/messages/to/:id/action-requests', messageCtrl.messagesToByCategoryActionRequest);
 
   app.get('/api/v1/messages/from/:id', messageCtrl.messagesFrom);
 };

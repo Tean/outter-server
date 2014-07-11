@@ -146,6 +146,18 @@ exports.messagesToByCategoryResponse = function (req, res) {
   });
 };
 
+// GET (/api/v1/messages/to/:id/action-requests)
+exports.messagesToByCategoryActionRequest = function (req, res) {
+  var to = req.params.id;
+  Message.find({ 'to': to, category: 'action-request' }, function(err, message) {
+    if (err) {
+      res.json(404, err);
+    } else {
+      res.json(200, {message: message});
+    }
+  });
+};
+
 // GET (/api/v1/messages/from/:id)
 exports.messagesFrom = function (req, res) {
   var from = req.params.id;
