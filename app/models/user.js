@@ -14,7 +14,9 @@ var UserSchema = new Schema({
   password: { type: String, required: true },
   loginAttempts: { type: Number, required: true, default: 0 },
   lockUntil: Number,
-  contacts: []
+  contacts: [],
+  about: String,
+  picURL: String
 });
 
 /* JSON equivalent
@@ -27,7 +29,9 @@ var UserSchema = new Schema({
   password: "$2a$10$hcKmW4D7MV5SGTeMGhE7me79R7AJi2sWU9AlIIScSp2.otcaX/kn.",
   __v: 0,
   loginAttempts: 0,
-  contacts: [ "jeffling", "neilogrady", "brandonasselstine" ]
+  contacts: [ "jeffling", "neilogrady", "brandonasselstine" ],
+  about: "Alumni of Lighthouse Labs",
+  picURL: "https://avatars2.githubusercontent.com/u/6625584"
 }
 */
 
