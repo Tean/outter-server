@@ -39,16 +39,16 @@ Message.find({}).exec(function(err, collection) {
       { from: "andrewkong", to: "slavkurilyak", body: "I\'ve been to a live concert before", category: "response", sent: Date.parse("Jul 3, 2014") },
       { from: "ericlee", to: "slavkurilyak", body: "I\'m awesome at pool", category: "response", sent: Date.parse("Jul 2, 2014") },
 
-      { from: "slavkurilyak", to: "ericlee", body: "Please pick up the milk today", category: "action-request", sent: Date.parse("July 11, 2014") },
-      { from: "ericlee", to: "andrewkong", body: "Finish the report by 7pm", category: "action-request", sent: Date.parse("Jul 10, 2014") },
-      { from: "andrewkong", to: ["ericlee", "slavkurilyak"], body: "Please make french toast tomorrow", category: "action-request", sent: Date.parse("Jul 9, 2014") },
-      { from: "slavkurilyak", to: ["ericlee", "andrewkong"], body: "Stop by the grocery store on Sunday", category: "action-request", sent: Date.parse("Jul 8, 2014") },
-      { from: "ericlee", to: "andrewkong", body: "Please paint the outside of the house by next Thursday", category: "action-request", sent: Date.parse("Jul 7, 2014") },
-      { from: "slavkurilyak", to: "ericlee", body: "Meet me outside of Starbucks at 7pm", category: "action-request", sent: Date.parse("Jul 6, 2014") },
-      { from: "andrewkong", to: "ericlee", body: "Buy the guitar tonight using Amazon", category: "action-request", sent: Date.parse("Jul 5, 2014") },
-      { from: "slavkurilyak", to: "ericlee", body: "Please pick up the kids by lunch", category: "action-request", sent: Date.parse("Jul 4, 2014") },
-      { from: "andrewkong", to: ["ericlee", "slavkurilyak"], body: "Weekly standup meeting in the conference room tomorrow at 8am", category: "action-request", sent: Date.parse("Jul 3, 2014") },
-      { from: "ericlee", to: ["andrewkong", "slavkurilyak"], body: "Daily standup meeting on Thursday at 10am", category: "action-request", sent: Date.parse("Jul 2, 2014") }
+      { from: "slavkurilyak", to: "ericlee", body: "Please pick up the milk today", category: "actionrequest", sent: Date.parse("July 11, 2014") },
+      { from: "ericlee", to: "andrewkong", body: "Finish the report by 7pm", category: "actionrequest", sent: Date.parse("Jul 10, 2014") },
+      { from: "andrewkong", to: ["ericlee", "slavkurilyak"], body: "Please make french toast tomorrow", category: "actionrequest", sent: Date.parse("Jul 9, 2014") },
+      { from: "slavkurilyak", to: ["ericlee", "andrewkong"], body: "Stop by the grocery store on Sunday", category: "actionrequest", sent: Date.parse("Jul 8, 2014") },
+      { from: "ericlee", to: "andrewkong", body: "Please paint the outside of the house by next Thursday", category: "actionrequest", sent: Date.parse("Jul 7, 2014") },
+      { from: "slavkurilyak", to: "ericlee", body: "Meet me outside of Starbucks at 7pm", category: "actionrequest", sent: Date.parse("Jul 6, 2014") },
+      { from: "andrewkong", to: "ericlee", body: "Buy the guitar tonight using Amazon", category: "actionrequest", sent: Date.parse("Jul 5, 2014") },
+      { from: "slavkurilyak", to: "ericlee", body: "Please pick up the kids by lunch", category: "actionrequest", sent: Date.parse("Jul 4, 2014") },
+      { from: "andrewkong", to: ["ericlee", "slavkurilyak"], body: "Weekly standup meeting in the conference room tomorrow at 8am", category: "actionrequest", sent: Date.parse("Jul 3, 2014") },
+      { from: "ericlee", to: ["andrewkong", "slavkurilyak"], body: "Daily standup meeting on Thursday at 10am", category: "actionrequest", sent: Date.parse("Jul 2, 2014") }
     ];
   
     Message.create(arrayMessages, function (err) {
