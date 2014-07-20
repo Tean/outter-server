@@ -3,9 +3,10 @@
 var express = require('express'),
   expressJwt = require('express-jwt'),
   jwt = require('jsonwebtoken'),
-  cors = require('cors')
+  cors = require('cors');
 
 module.exports = function(app, config) {
+  'use strict';
   app.configure(function () {
     app.use(cors());
     app.use('/api', expressJwt({
@@ -31,8 +32,8 @@ module.exports = function(app, config) {
     //   return;
     // }
     var profile = {
-      first_name: 'John',
-      last_name: 'Doe',
+      firstName: 'John',
+      lastName: 'Doe',
       email: 'john@doe.com',
       id: 123
     };
