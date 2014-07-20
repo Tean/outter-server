@@ -3,14 +3,15 @@ var mongoose = require('mongoose'),
     User = mongoose.model('User');
 
 Message.find({}).exec(function(err, collection) {
+  'use strict';
   if(collection.length === 0) {
 
     var arrayMessages = [
       { from: "slavkurilyak", to: "ericlee", body: "Go 1.3 is released", category: "fyi", sent: Date.parse("July 11, 2014") },
-      { from: "ericlee", to: "andrewkong", body: "Check out the new Amazon Fire phone", category: "fyi", sent: Date.parse("Jul 10, 2014") },
-      { from: "andrewkong", to: ["ericlee", "slavkurilyak"], body: "Take my advice: stand up for yourself.", category: "fyi", sent: Date.parse("Jul 9, 2014") },
-      { from: "slavkurilyak", to: ["ericlee", "andrewkong"], body: "My roommate(s) and I once: had a party every weekend for three months straight.", category: "fyi", sent: Date.parse("Jul 8, 2014") },
-      { from: "ericlee", to: "andrewkong", body: "Sorry Im late, but I didnt want to come.", category: "fyi", sent: Date.parse("Jul 7, 2014") },
+      { from: "ericlee", to: 'andrewkong', body: 'Check out the new Amazon Fire phone', category: 'fyi', sent: Date.parse('Jul 10, 2014') },
+      { from: 'andrewkong', to: ['ericlee', 'slavkurilyak'], body: 'Take my advice: stand up for yourself.', category: 'fyi', sent: Date.parse('Jul 9, 2014') },
+      { from: 'slavkurilyak', to: ['ericlee', 'andrewkong'], body: 'My roommate(s) and I once: had a party every weekend for three months straight.', category: 'fyi', sent: Date.parse('Jul 8, 2014') },
+      { from: 'ericlee", to: "andrewkong", body: "Sorry Im late, but I didnt want to come.", category: "fyi", sent: Date.parse("Jul 7, 2014") },
       { from: "slavkurilyak", to: "ericlee", body: "Were like a really small gang", category: "fyi", sent: Date.parse("Jul 6, 2014") },
       { from: "andrewkong", to: "ericlee", body: "Never in my life have I: built a snowman.", category: "fyi", sent: Date.parse("Jul 5, 2014") },
       { from: "slavkurilyak", to: "ericlee", body: "My ideal breakfast is: chilaquiles.", category: "fyi", sent: Date.parse("Jul 4, 2014") },
@@ -50,13 +51,13 @@ Message.find({}).exec(function(err, collection) {
       { from: "andrewkong", to: ["ericlee", "slavkurilyak"], body: "Weekly standup meeting in the conference room tomorrow at 8am", category: "actionrequest", sent: Date.parse("Jul 3, 2014") },
       { from: "ericlee", to: ["andrewkong", "slavkurilyak"], body: "Daily standup meeting on Thursday at 10am", category: "actionrequest", sent: Date.parse("Jul 2, 2014") }
     ];
-  
+
     Message.create(arrayMessages, function (err) {
       if (err) throw error;
       else
       console.log('New messages was successfully added to db');
     });
-  
+
   }
 })
 
@@ -129,16 +130,16 @@ User.find({}).exec(function(err, collection) {
 
 // samroberts.save(function (err) {
 //   if (err) return handleError(err);
-  
-//   var tomcruise = new User({ 
-//     _id: 1, 
-//     userName: "tomcruise", 
-//     email: "tcruise@outter.io", 
-//     password: "Password123", 
+
+//   var tomcruise = new User({
+//     _id: 1,
+//     userName: "tomcruise",
+//     email: "tcruise@outter.io",
+//     password: "Password123",
 //     loginAttempts: 0,
 //     _creator: samroberts._id    // assign the _id from the person
 //   });
-  
+
 //   tomcruise.save(function (err) {
 //     if (err) return handleError(err);
 //     // thats it!

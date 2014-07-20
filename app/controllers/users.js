@@ -4,10 +4,11 @@ var mongoose = require('mongoose'),
 
 // GET (/api/v1/users)
 exports.users = function(req, res){
+  'use strict';
   User.find(function(err, users) {
     if (err) {
       res.json(500, err);
-    } else {    
+    } else {
       res.json({users: users});
     }
   });
@@ -15,7 +16,8 @@ exports.users = function(req, res){
 
 // POST (/api/v1/user/login)
 exports.login = function (req, res) {
-  if(typeof req.body == 'undefined'){
+  'use strict';
+  if(typeof req.body === 'undefined'){
     return res.json(500, {message: 'email or password is undefined'});
   }
 
@@ -23,7 +25,7 @@ exports.login = function (req, res) {
   var password = req.body.password;
 
   User.getAuthenticated(email, password, function(err, user, reason) {
-    var session = null, 
+    var session = null,
       token = null;
 
     if (user == null) {
@@ -37,7 +39,7 @@ exports.login = function (req, res) {
           message = 1;
       }
     } else {
-      console.log("user", user.userName, "logged in");
+      console.log('user', user.userName, 'logged in');
       session = {
         firstName: user.firstName,
         lastName: user.lastName,
@@ -58,6 +60,7 @@ exports.login = function (req, res) {
 
 // GET (/api/v1/user/:id)
 exports.user = function (req, res) {
+  'use strict';
   var id = req.params.id;
   User.findOne({ '_id': id }, function(err, user) {
     if (err) {
@@ -70,7 +73,8 @@ exports.user = function (req, res) {
 
 // POST (/api/v1/user)
 exports.addUser = function (req, res) {
-  if(typeof req.body == 'undefined'){
+  'use strict';
+  if(typeof req.body === 'undefined'){
     return res.json(500, {message: 'user is undefined'});
   }
 
@@ -79,7 +83,7 @@ exports.addUser = function (req, res) {
   user.save(function (err) {
     console.log(err);
     if (!err) {
-      console.log("created user");
+      console.log('created user');
 
       var session = {
         firstName: user.firstName,
@@ -108,26 +112,27 @@ exports.addUser = function (req, res) {
 
 // PUT (/api/v1/user/:id)
 exports.editUser = function (req, res) {
+  'use strict';
   var id = req.params.id;
 
   User.findById(id, function (err, user) {
-  
-    if(typeof req.body.user["firstName"] != 'undefined'){
-      user["firstName"] = req.body.user["firstName"];
-    }  
-  
-    if(typeof req.body.user["lastName"] != 'undefined'){
-      user["lastName"] = req.body.user["lastName"];
-    }  
-  
-    if(typeof req.body.user["email"] != 'undefined'){
-      user["email"] = req.body.user["email"];
-    }  
-    
+
+    if(typeof req.body.user['.firstName'] !== 'undefined'){
+      user['.firstName'] = req.body.user['.firstName'];
+    }
+
+    if(typeof req.body.user['.lastName'] !== 'undefined'){
+      user['.lastName'] = req.body.user['.lastName'];
+    }
+
+    if(typeof req.body.user['.email'] !== 'undefined'){
+      user['.email'] = req.body.user['.email'];
+    }
+
     return user.save(function (err) {
       if (!err) {
-        console.log("updated user");
-        return res.json(200, user.toObject());        
+        console.log('updated user');
+        return res.json(200, user.toObject());
       } else {
        return res.json(500, err);
       }
@@ -139,11 +144,12 @@ exports.editUser = function (req, res) {
 
 // DELETE (/api/v1/user/:id)
 exports.deleteUser = function (req, res) {
+  'use strict';
   var id = req.params.id;
   User.findById(id, function (err, user) {
     return user.remove(function (err) {
       if (!err) {
-        console.log("removed user");
+        console.log('removed user');
         return res.send(204);
       } else {
         console.log(err);

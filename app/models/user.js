@@ -37,11 +37,13 @@ var UserSchema = new Schema({
 */
 
 UserSchema.virtual('isLocked').get(function() {
+  'use strict';
   // check for a future lockUntil timestamp
   return !!(this.lockUntil && this.lockUntil > Date.now());
 });
 
 UserSchema.pre('save', function(next) {
+  'use strict';
   var user = this;
 
   // only hash the password if it has been modified (or is new)
@@ -63,6 +65,7 @@ UserSchema.pre('save', function(next) {
 });
 
 UserSchema.methods.comparePassword = function(candidatePassword, cb) {
+  'use strict';
   bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
     if (err) return cb(err);
     cb(null, isMatch);
@@ -70,6 +73,7 @@ UserSchema.methods.comparePassword = function(candidatePassword, cb) {
 };
 
 UserSchema.methods.incLoginAttempts = function(cb) {
+  'use strict';
   // if we have a previous lock that has expired, restart at 1
   if (this.lockUntil && this.lockUntil < Date.now()) {
     return this.update({
@@ -86,16 +90,17 @@ UserSchema.methods.incLoginAttempts = function(cb) {
   return this.update(updates, cb);
 };
 
-// expose enum on the model, and provide an internal convenience reference 
+// expose enum on the model, and provide an internal convenience reference
 var reasons = UserSchema.statics.failedLogin = {
     NOT_FOUND: 0,
     PASSWORD_INCORRECT: 1,
     MAX_ATTEMPTS: 2
 };
- 
+
 UserSchema.statics.reasons = reasons;
 
 UserSchema.statics.getAuthenticated = function(email, password, cb) {
+  'use strict';
   this.findOne({ email: email }, function(err, user) {
     if (err) return cb(err);
 
@@ -103,7 +108,7 @@ UserSchema.statics.getAuthenticated = function(email, password, cb) {
     if (!user) {
       return cb(null, null, reasons.NOT_FOUND);
     }
-    
+
     // check if the account is currently locked
     if (user.isLocked) {
       // just increment login attempts if account is already locked

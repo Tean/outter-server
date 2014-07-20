@@ -1,6 +1,7 @@
 var express = require('express');
 
 module.exports = function(app, config) {
+  'use strict';
   app.configure(function () {
     app.use(express.compress());
     app.use(express.static(config.root + '/public'));
@@ -12,8 +13,8 @@ module.exports = function(app, config) {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.all('/*', function(req, res, next) {
-      res.header("Access-Control-Allow-Origin", "*");
-      res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, Access-Control-Allow-Headers, Content-Type, Authorization, X-Requested-With, *");
+      res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Content-Type, Authorization, X-Requested-With, *');
       next();
     });
     app.use(app.router);
